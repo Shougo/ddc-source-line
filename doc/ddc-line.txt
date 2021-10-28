@@ -1,25 +1,24 @@
-*ddc-around.txt*	Around completion for ddc.vim
+*ddc-line.txt*	Line completion for ddc.vim
 
 Author: Shougo <Shougo.Matsu at gmail.com>
 License: MIT license
 
-CONTENTS						*ddc-around-contents*
+CONTENTS						*ddc-line-contents*
 
-Introduction		|ddc-around-introduction|
-Install			|ddc-around-install|
-Examples		|ddc-around-examples|
-Params			|ddc-around-params|
-
-
-==============================================================================
-INTRODUCTION					*ddc-around-introduction*
-
-This source collects candidates around the cursor, namely inside current
-buffer.
+Introduction		|ddc-line-introduction|
+Install			|ddc-line-install|
+Examples		|ddc-line-examples|
+Params			|ddc-line-params|
 
 
 ==============================================================================
-INSTALL							*ddc-around-install*
+INTRODUCTION					*ddc-line-introduction*
+
+This source collects candidates from current buffer lines.
+
+
+==============================================================================
+INSTALL							*ddc-line-install*
 
 Please install both "ddc.vim" and "denops.vim".
 
@@ -28,25 +27,24 @@ https://github.com/vim-denops/denops.vim
 
 
 ==============================================================================
-EXAMPLES						*ddc-around-examples*
+EXAMPLES						*ddc-line-examples*
 >
 >
-	" Use around source.
-	call ddc#custom#patch_global('sources', ['around'])
+	call ddc#custom#patch_global('sources', ['line'])
 	
 	" Change source options
 	call ddc#custom#patch_global('sourceOptions', {
-	      \ 'around': {'mark': 'A'},
+	      \ 'line': {'mark': 'line'},
 	      \ })
 	call ddc#custom#patch_global('sourceParams', {
-	      \ 'around': {'maxSize': 500},
+	      \ 'line': {'maxSize': 500},
 	      \ })
 <
 
 ==============================================================================
-PARAMS							*ddc-around-params*
+PARAMS							*ddc-line-params*
 
-				    		*ddc-around-param-maxSize*
+				    		*ddc-line-param-maxSize*
 maxSize		(number)
 		Fixed range of looking for words lines above and below your
 		cursor position.
