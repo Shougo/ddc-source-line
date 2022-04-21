@@ -1,13 +1,10 @@
 import {
   BaseSource,
-  Candidate,
   DdcOptions,
+  Item,
   SourceOptions,
-} from "https://deno.land/x/ddc_vim@v0.13.0/types.ts#^";
-import {
-  Denops,
-  fn,
-} from "https://deno.land/x/ddc_vim@v0.13.0/deps.ts#^";
+} from "https://deno.land/x/ddc_vim@v2.2.0/types.ts";
+import { Denops, fn } from "https://deno.land/x/ddc_vim@v2.2.0/deps.ts";
 
 type Params = {
   maxSize: number;
@@ -18,13 +15,13 @@ export class Source extends BaseSource<Params> {
     return Promise.resolve(0);
   }
 
-  async gatherCandidates(args: {
-    denops: Denops,
-    options: DdcOptions,
-    sourceOptions: SourceOptions,
-    sourceParams: Params,
-    completeStr: string,
-  }): Promise<Candidate[]> {
+  async gather(args: {
+    denops: Denops;
+    options: DdcOptions;
+    sourceOptions: SourceOptions;
+    sourceParams: Params;
+    completeStr: string;
+  }): Promise<Item[]> {
     const p = args.sourceParams as unknown as Params;
     const maxSize = p.maxSize;
     const currentLine = await fn.line(args.denops, ".");
@@ -33,9 +30,9 @@ export class Source extends BaseSource<Params> {
       await fn.line(args.denops, "$"),
       currentLine + maxSize,
     );
-    const cs: Candidate[] =
-      (await fn.getline(args.denops, minLines, maxLines)).map(
-        (word: string) => ({ word }));
+    const cs: Item[] = (await fn.getline(args.denops, minLines, maxLines)).map(
+      (word: string) => ({ word }),
+    );
     return cs;
   }
 

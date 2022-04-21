@@ -4,18 +4,15 @@ Line completion for ddc.vim
 
 This source collects candidates from current buffer lines.
 
-
 ## Required
 
 ### denops.vim
 
 https://github.com/vim-denops/denops.vim
 
-
 ### ddc.vim
 
 https://github.com/Shougo/ddc.vim
-
 
 ## Configuration
 
