@@ -19,11 +19,10 @@ https://github.com/Shougo/ddc.vim
 ```vim
 call ddc#custom#patch_global('sources', ['line'])
 
-" Change source options
-call ddc#custom#patch_global('sourceOptions', {
-      \ 'line': {'mark': 'line'},
+call ddc#custom#patch_global('sourceOptions', #{
+      \   line: #{ mark: 'line' },
       \ })
-call ddc#custom#patch_global('sourceParams', {
-      \ 'line': {'maxSize': 1000},
+call ddc#custom#patch_global('sourceParams', #{
+      \   line: #{ maxSize: 1000 },
       \ })
 ```

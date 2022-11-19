@@ -32,12 +32,11 @@ EXAMPLES					*ddc-source-line-examples*
 >
 	call ddc#custom#patch_global('sources', ['line'])
 	
-	" Change source options
-	call ddc#custom#patch_global('sourceOptions', {
-	      \ 'line': {'mark': 'line'},
+	call ddc#custom#patch_global('sourceOptions', #{
+	      \   line: #{ mark: 'line' },
 	      \ })
-	call ddc#custom#patch_global('sourceParams', {
-	      \ 'line': {'maxSize': 500},
+	call ddc#custom#patch_global('sourceParams', #{
+	      \   line: #{ maxSize: 500 },
 	      \ })
 <
 
