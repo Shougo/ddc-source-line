@@ -31,7 +31,7 @@ export class Source extends BaseSource<Params> {
       currentLine + maxSize,
     );
     const cs: Item[] = (await fn.getline(args.denops, minLines, maxLines)).map(
-      (word: string) => ({ word }),
+      (word: string) => ({ word, abbr: word.replaceAll("\t", '\\t') }),
     );
     return cs;
   }
