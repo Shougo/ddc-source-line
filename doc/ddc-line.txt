@@ -14,7 +14,7 @@ Params			|ddc-source-line-params|
 ==============================================================================
 INTRODUCTION					*ddc-source-line-introduction*
 
-This source collects candidates from current buffer lines.
+This source collects items from current buffer lines.
 
 
 ==============================================================================

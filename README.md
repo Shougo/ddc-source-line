@@ -2,7 +2,7 @@
 
 Line completion for ddc.vim
 
-This source collects candidates from current buffer lines.
+This source collects items from current buffer lines.
 
 ## Required
 
