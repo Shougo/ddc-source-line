@@ -16,7 +16,8 @@ export class Source extends BaseSource<Params> {
     denops: Denops,
     context: Context,
   }): Promise<number> {
-    return Promise.resolve(args.context.input.match(/^\s*/)?.index ?? 0);
+    const match = args.context.input.match(/^\s+/);
+    return Promise.resolve(match ? match[0].length : 0);
   }
 
   override async gather(args: {
