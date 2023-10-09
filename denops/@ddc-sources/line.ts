@@ -11,10 +11,6 @@ type Params = {
 };
 
 export class Source extends BaseSource<Params> {
-  override getCompletePosition(_args: { denops: Denops }): Promise<number> {
-    return Promise.resolve(0);
-  }
-
   override async gather(args: {
     denops: Denops;
     options: DdcOptions;
