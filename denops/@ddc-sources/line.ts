@@ -3,8 +3,8 @@ import {
   DdcOptions,
   Item,
   SourceOptions,
-} from "https://deno.land/x/ddc_vim@v3.2.0/types.ts";
-import { Denops, fn } from "https://deno.land/x/ddc_vim@v3.2.0/deps.ts";
+} from "https://deno.land/x/ddc_vim@v4.0.5/types.ts";
+import { Denops, fn } from "https://deno.land/x/ddc_vim@v4.0.5/deps.ts";
 
 type Params = {
   maxSize: number;
@@ -31,7 +31,7 @@ export class Source extends BaseSource<Params> {
       currentLine + maxSize,
     );
     const cs: Item[] = (await fn.getline(args.denops, minLines, maxLines)).map(
-      (word: string) => ({ word, abbr: word.replaceAll("\t", '\\t') }),
+      (word: string) => ({ word: word.replace(/^\s+/, "") }),
     );
     return cs;
   }
