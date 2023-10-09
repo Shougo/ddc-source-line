@@ -1,5 +1,6 @@
 import {
   BaseSource,
+  Context,
   DdcOptions,
   Item,
   SourceOptions,
@@ -11,6 +12,13 @@ type Params = {
 };
 
 export class Source extends BaseSource<Params> {
+  override getCompletePosition(args: {
+    denops: Denops,
+    context: Context,
+  }): Promise<number> {
+    return Promise.resolve(args.context.input.match(/^\s*/)?.index ?? 0);
+  }
+
   override async gather(args: {
     denops: Denops;
     options: DdcOptions;
