@@ -1,13 +1,13 @@
 import {
-  BaseSource,
   type Context,
   type DdcOptions,
   type Item,
   type SourceOptions,
-} from "jsr:@shougo/ddc-vim@6.0.0/types";
+} from "jsr:@shougo/ddc-vim@~7.0.0/types";
+import { BaseSource } from "jsr:@shougo/ddc-vim@~7.0.0/source";
 
-import type { Denops } from "jsr:@denops/core@^7.0.0";
-import * as fn from "jsr:@denops/std@7.0.1/function";
+import type { Denops } from "jsr:@denops/core@~7.0.0";
+import * as fn from "jsr:@denops/std@~7.1.1/function";
 
 type Params = {
   maxSize: number;
@@ -15,8 +15,8 @@ type Params = {
 
 export class Source extends BaseSource<Params> {
   override getCompletePosition(args: {
-    denops: Denops,
-    context: Context,
+    denops: Denops;
+    context: Context;
   }): Promise<number> {
     const match = args.context.input.match(/^\s+/);
     return Promise.resolve(match ? match[0].length : 0);
