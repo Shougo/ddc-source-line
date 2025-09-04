@@ -1,13 +1,13 @@
-import {
-  type Context,
-  type DdcOptions,
-  type Item,
-  type SourceOptions,
-} from "jsr:@shougo/ddc-vim@~7.0.0/types";
-import { BaseSource } from "jsr:@shougo/ddc-vim@~7.0.0/source";
+import type {
+  Context,
+  DdcOptions,
+  Item,
+  SourceOptions,
+} from "@shougo/ddc-vim/types";
+import { BaseSource } from "@shougo/ddc-vim/source";
 
-import type { Denops } from "jsr:@denops/core@~7.0.0";
-import * as fn from "jsr:@denops/std@~7.1.1/function";
+import type { Denops } from "@denops/std";
+import * as fn from "@denops/std/function";
 
 type Params = {
   maxSize: number;
