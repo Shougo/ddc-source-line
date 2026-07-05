@@ -29,8 +29,7 @@ export class Source extends BaseSource<Params> {
     sourceParams: Params;
     completeStr: string;
   }): Promise<Item[]> {
-    const p = args.sourceParams as unknown as Params;
-    const maxSize = p.maxSize;
+    const maxSize = args.sourceParams.maxSize;
     const currentLine = await fn.line(args.denops, ".");
     const minLines = Math.max(1, currentLine - maxSize);
     const maxLines = Math.min(
